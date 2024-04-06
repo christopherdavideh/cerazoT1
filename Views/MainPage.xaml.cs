@@ -1,4 +1,4 @@
-﻿namespace cerazoT1
+﻿namespace cerazoT1.Views
 {
     public partial class MainPage : ContentPage
     {

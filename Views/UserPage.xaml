@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cerazoT1.Views.UserPage"
+             Title="Aportes">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20">
+            <Label 
+                Text="Calcula tu aporte al IESS"
+                FontSize="Title"
+                TextColor="DarkBlue"
+                FontAttributes="Bold"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                Margin="0,0,0,30"/>
+            <Image
+                Source="iess_logo.png"
+                HeightRequest="150"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" 
+                Margin="0,0,0,30"/>
+            <Label Text="Nombre" 
+                   MaximumWidthRequest="250"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="txt_name"
+                   Placeholder="Nombre"
+                   MaximumWidthRequest="250"
+                   Keyboard="Text"
+                   MaxLength="20"
+                   Margin="0,0,0,20"/>
+            <Label Text="Apellido"
+                   MaximumWidthRequest="250"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="txt_lastname"
+                   Placeholder="Apellido"
+                   MaximumWidthRequest="250"
+                   Keyboard="Text"
+                   MaxLength="20"
+                   Margin="0,0,0,20"/>
+            <Label Text="Edad"
+                   MaximumWidthRequest="250"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="txt_age"
+                   Placeholder="Edad"
+                   MaximumWidthRequest="250"
+                   Keyboard="Numeric"
+                   MaxLength="3"
+                   Margin="0,0,0,20"/>
+            <Label Text="Sueldo"
+                   MaximumWidthRequest="250"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="txt_salary"
+                   Placeholder="$500"
+                   MaximumWidthRequest="250"
+                   Keyboard="Numeric"
+                   MaxLength="6"
+                   Margin="0,0,0,20"/>
+            <Button x:Name="btn_calculate"
+                    Text="Calcular"
+                    FontAttributes="Bold"
+                    BackgroundColor="#29c489"
+                    Clicked="btn_calculate_Clicked"
+                    BorderWidth="2"
+                    MaximumWidthRequest="250"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
