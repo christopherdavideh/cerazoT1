@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cerazoT1.Views.QualificationPage">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20">
+            <Label 
+                Text="Seguimiento Estudiantes"
+                FontSize="Title"
+                TextColor="DarkBlue"
+                FontAttributes="Bold"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                Margin="0,0,0,30"/>
+            <Label Text="Fecha:" 
+                   MaximumWidthRequest="250"
+                   FontAttributes="Bold"/>  
+            <DatePicker x:Name="pckDate"
+                        MaximumWidthRequest="250"
+                        Format="dd/MM/yyyy"
+                        Margin="0,0,0,20"/>
+            <Label Text="Estudiante:" 
+                   MaximumWidthRequest="250"
+                   FontAttributes="Bold"/>
+            <Picker x:Name="pckStudent"
+                Title="Selecione un estudiante"
+                MaximumWidthRequest="250"
+                Margin="0,0,0,20">
+                <Picker.Items>
+                    <x:String>Christopher Erazo</x:String>
+                    <x:String>David Salazar</x:String>
+                    <x:String>Neithan Montenegro</x:String>
+                    <x:String>Juan Castillo</x:String>
+                    <x:String>Alexander Herrera</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Nota Seguimiento 1:"
+                   MaximumWidthRequest="250"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="txtNote1"
+                    Placeholder="Nota 1"
+                    MaximumWidthRequest="250"
+                    Keyboard="Numeric"
+                    MaxLength="4"/>
+            <Label Text="Examen Parcial:"
+                   MaximumWidthRequest="250"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="txtTest1"
+                   Placeholder="Examen "
+                   MaximumWidthRequest="250"
+                   Keyboard="Numeric"
+                   MaxLength="4"
+                   Margin="0,0,0,20"/>
+            <Label Text="Nota Seguimiento 2:"
+                   MaximumWidthRequest="250"
+                   FontAttributes="Bold"/>    
+            <Entry x:Name="txtNote2"
+                   Placeholder="Nota 2"
+                   MaximumWidthRequest="250"
+                   Keyboard="Numeric"
+                   MaxLength="4"
+                   Margin="0,0,0,20"/>  
+            <Label Text="Examen Final:"
+                   MaximumWidthRequest="250"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="txtTest2"
+                   Placeholder="Examen Final"
+                   MaximumWidthRequest="250"
+                   Keyboard="Numeric"
+                   MaxLength="4"
+                   Margin="0,0,0,20"/>
+            <Button x:Name="btnValidate"
+                    Text="Calcular"
+                    FontAttributes="Bold"
+                    BackgroundColor="#29c489"
+                    Clicked="btnValidate_Clicked"
+                    BorderWidth="2"
+                    MaximumWidthRequest="250"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

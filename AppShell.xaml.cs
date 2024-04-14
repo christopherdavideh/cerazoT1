@@ -17,6 +17,7 @@ namespace cerazoT1
         {
             Routes.Add("inicio", typeof(MainPage));
             Routes.Add("aportes", typeof(UserPage));
+            Routes.Add("calificaciones", typeof(QualificationPage));
 
             foreach (var item in Routes)
             {

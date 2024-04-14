@@ -18,6 +18,10 @@
             Title="Aporte IESS"
             ContentTemplate="{DataTemplate views:UserPage}"
             Route="UserPage" />
+        <ShellContent
+            Title="Calificaciones"
+            ContentTemplate="{DataTemplate views:QualificationPage}"
+            Route="calificaciones" />
     </FlyoutItem>
 
 </Shell>
