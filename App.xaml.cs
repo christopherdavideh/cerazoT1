@@ -1,4 +1,6 @@
-﻿namespace cerazoT1
+﻿using cerazoT1.Views;
+
+namespace cerazoT1
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new LoginPage());
         }
     }
 }

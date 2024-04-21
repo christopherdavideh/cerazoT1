@@ -7,6 +7,8 @@
         public MainPage()
         {
             InitializeComponent();
+            string username = Preferences.Get("Username", string.Empty);
+            lblUser.Text = "Welcome, " + username;
         }
 
         private void OnCounterClicked(object sender, EventArgs e)
