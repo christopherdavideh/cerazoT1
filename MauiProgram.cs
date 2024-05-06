@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using cerazoT1.Helper;
+using cerazoT1.Repository;
+using Microsoft.Extensions.Logging;
 
 namespace cerazoT1
 {
@@ -15,8 +17,11 @@ namespace cerazoT1
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            string path = FileAccessHelper.GetLocalFilePath("dbPersonas.db3");
+            builder.Services.AddSingleton<PersonRepository>(s => ActivatorUtilities.CreateInstance<PersonRepository>(s, path));
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

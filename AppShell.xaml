@@ -12,6 +12,7 @@
 
         <ShellContent
             Title="Home"
+            
             ContentTemplate="{DataTemplate views:MainPage}"
             Route="MainPage" />
         <ShellContent
@@ -22,6 +23,10 @@
             Title="Calificaciones"
             ContentTemplate="{DataTemplate views:QualificationPage}"
             Route="calificaciones" />
+        <ShellContent
+            Title="Colaboradores"
+            ContentTemplate="{DataTemplate views:PersonPage}"
+            Route="colaboradores" />
     </FlyoutItem>
 
 </Shell>

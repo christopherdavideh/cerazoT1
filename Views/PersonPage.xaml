@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cerazoT1.Views.PersonPage"
+             Title="">
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="15">
+            <Label 
+                Text="Datos del Colaborador"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                FontAttributes="Bold"
+                FontSize="20"/>
+            <Entry x:Name="txtName"
+                   Placeholder="Ingrese un nombre"/>
+            <Entry x:Name="txtLastname"
+                   Placeholder="Ingrese un apellido"/>
+            <Entry x:Name="txtEmail"
+                   Placeholder="Ingrese un correo"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button x:Name="btnAdd"
+                        Text="Agregar"
+                        Clicked="btnAdd_Clicked"
+                        Margin="0,0,5,0"/>
+
+                <Button x:Name="btnUpdate"
+                        Text="Actualizar"
+                        Grid.Column="1"
+                        Clicked="btnUpdate_Clicked"
+                        IsEnabled="False"
+                        Margin="0,0,5,0"/>
+                <Button x:Name="btnDelete"
+                        Text="Eliminar"
+                        Grid.Column="2"
+                        Clicked="btnDelete_Clicked"
+                        IsEnabled="False"/>
+            </Grid>
+            <Label x:Name="lblStatus" />
+            <Grid Margin="0,25,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="#"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+                <Label Text="Nombre" Grid.Column="1"
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+                <Label Text="Apellido" Grid.Column="2"
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+                <Label Text="Correo" Grid.Column="3" 
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+            </Grid>
+            <ListView x:Name="listViewPerson" ItemSelected="listViewPerson_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Id}"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Name}" Grid.Column="1"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Start"/>
+                                <Label Text="{Binding Lastname}" Grid.Column="2"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Email}" Grid.Column="3" 
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Start"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>
