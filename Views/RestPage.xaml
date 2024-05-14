@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="cerazoT1.Views.PersonPage"
-             Title="">
+             x:Class="cerazoT1.Views.RestPage"
+             Title="RestPage">
     <ScrollView>
         <VerticalStackLayout Padding="20"
-                             Spacing="15">
+                         Spacing="15">
             <Label 
-                Text="Datos del Colaborador"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" 
-                FontAttributes="Bold"
-                FontSize="20"/>
+            Text="Datos del Colaborador"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontAttributes="Bold"
+            FontSize="20"/>
             <Entry x:Name="txtName"
-                   Placeholder="Ingrese un nombre"/>
+               Placeholder="Ingrese un nombre"/>
             <Entry x:Name="txtLastname"
-                   Placeholder="Ingrese un apellido"/>
+               Placeholder="Ingrese un apellido"/>
             <Entry x:Name="txtEmail"
-                   Placeholder="Ingrese un correo"/>
+               Placeholder="Ingrese un correo"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -28,21 +28,21 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Button x:Name="btnAdd"
-                        Text="Agregar"
-                        Clicked="btnAdd_Clicked"
-                        Margin="0,0,5,0"/>
+                    Text="Agregar"
+                    Clicked="btnAdd_Clicked"
+                    Margin="0,0,5,0"/>
 
                 <Button x:Name="btnUpdate"
-                        Text="Actualizar"
-                        Grid.Column="1"
-                        Clicked="btnUpdate_Clicked"
-                        IsEnabled="False"
-                        Margin="0,0,5,0"/>
+                    Text="Actualizar"
+                    Grid.Column="1"
+                    Clicked="btnUpdate_Clicked"
+                    IsEnabled="False"
+                    Margin="0,0,5,0"/>
                 <Button x:Name="btnDelete"
-                        Text="Eliminar"
-                        Grid.Column="2"
-                        Clicked="btnDelete_Clicked"
-                        IsEnabled="False"/>
+                    Text="Eliminar"
+                    Grid.Column="2"
+                    Clicked="btnDelete_Clicked"
+                    IsEnabled="False"/>
             </Grid>
             <Label x:Name="lblStatus" />
             <Grid Margin="0,25,0,0">
@@ -53,23 +53,23 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <Label Text="#"
-                       VerticalTextAlignment="Center"
-                       HorizontalTextAlignment="Center"
-                       FontAttributes="Bold"/>
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"/>
                 <Label Text="Nombre" Grid.Column="1"
-                       VerticalTextAlignment="Center" 
-                       HorizontalTextAlignment="Center"
-                       FontAttributes="Bold"/>
+                   VerticalTextAlignment="Center" 
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"/>
                 <Label Text="Apellido" Grid.Column="2"
-                       VerticalTextAlignment="Center" 
-                       HorizontalTextAlignment="Center"
-                       FontAttributes="Bold"/>
+                   VerticalTextAlignment="Center" 
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"/>
                 <Label Text="Correo" Grid.Column="3" 
-                       VerticalTextAlignment="Center"
-                       HorizontalTextAlignment="Center"
-                       FontAttributes="Bold"/>
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"/>
             </Grid>
-            <ListView x:Name="listViewPerson" ItemSelected="listViewPerson_ItemSelected">
+            <ListView x:Name="listViewPerson">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -81,17 +81,17 @@
                                     <ColumnDefinition Width="2*"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding useId}"
-                                       VerticalTextAlignment="Center"
-                                       HorizontalTextAlignment="Center"/>
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
                                 <Label Text="{Binding useName}" Grid.Column="1"
-                                       VerticalTextAlignment="Center"
-                                       HorizontalTextAlignment="Start"/>
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Start"/>
                                 <Label Text="{Binding useLastname}" Grid.Column="2"
-                                       VerticalTextAlignment="Center"
-                                       HorizontalTextAlignment="Center"/>
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
                                 <Label Text="{Binding useEmail}" Grid.Column="3" 
-                                       VerticalTextAlignment="Center"
-                                       HorizontalTextAlignment="Start"/>
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Start"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -99,5 +99,4 @@
             </ListView>
         </VerticalStackLayout>
     </ScrollView>
-    
 </ContentPage>

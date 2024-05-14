@@ -48,10 +48,10 @@ public partial class PersonPage : ContentPage
         lblStatus.Text = "";
         Person person = new()
         {
-            Id = selectedPerson.Id,
-            Name = txtName.Text,
-            Lastname = txtLastname.Text,
-            Email = txtEmail.Text,
+            useId = selectedPerson.useId,
+            useName = txtName.Text,
+            useLastname = txtLastname.Text,
+            useEmail = txtEmail.Text,
         };
         App._personRepository.UpdatePerson(person);
         lblStatus.Text = App._personRepository.statusMessage;
@@ -84,9 +84,9 @@ public partial class PersonPage : ContentPage
 
         if (selectedPerson != null)
         {
-            txtEmail.Text = selectedPerson.Email;
-            txtName.Text = selectedPerson.Name;
-            txtLastname.Text = selectedPerson.Lastname;
+            txtEmail.Text = selectedPerson.useEmail;
+            txtName.Text = selectedPerson.useName;
+            txtLastname.Text = selectedPerson.useLastname;
             btnAdd.IsEnabled = false;
             btnUpdate.IsEnabled = true;
             btnDelete.IsEnabled = true;

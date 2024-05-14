@@ -27,6 +27,10 @@
             Title="Colaboradores"
             ContentTemplate="{DataTemplate views:PersonPage}"
             Route="colaboradores" />
+        <ShellContent
+            Title="Rest"
+            ContentTemplate="{DataTemplate views:RestPage}"
+            Route="rest" />
     </FlyoutItem>
 
 </Shell>

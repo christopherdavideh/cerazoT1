@@ -37,9 +37,9 @@ namespace cerazoT1.Repository
                 if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(email))
                     throw new Exception("Ingrese todos los campos requeridos");
                 Person person = new() { 
-                    Name = name, 
-                    Lastname = lastname, 
-                    Email = email 
+                    useName = name, 
+                    useLastname = lastname, 
+                    useEmail = email 
                 };
                 result = connection.Insert(person);
                 statusMessage = string.Format("Dato agregado corectamente:\n", result, name);
@@ -56,7 +56,7 @@ namespace cerazoT1.Repository
             try
             {
                 Init();
-                if (string.IsNullOrEmpty(person.Name) || string.IsNullOrEmpty(person.Lastname) || string.IsNullOrEmpty(person.Email))
+                if (string.IsNullOrEmpty(person.useName) || string.IsNullOrEmpty(person.useLastname) || string.IsNullOrEmpty(person.useEmail))
                     throw new Exception("Ingrese todos los campos requeridos");
                 result = connection.Update(person);
                 statusMessage = string.Format("Dato actualizado corectamente:\n", result);

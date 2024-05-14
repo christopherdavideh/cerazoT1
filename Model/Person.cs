@@ -11,12 +11,12 @@ namespace cerazoT1.Model
     public class Person
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public int useId { get; set; }
         [MaxLength(25)]
-        public string Name { get; set; }
+        public string useName { get; set; }
         [MaxLength(25)]
-        public string Lastname { get; set; }
+        public string useLastname { get; set; }
         [MaxLength(50), Unique]
-        public string Email { get; set; }
+        public string useEmail { get; set; }
     }
 }
