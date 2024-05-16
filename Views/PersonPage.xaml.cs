@@ -1,7 +1,6 @@
 using AndroidX.Lifecycle;
 using cerazoT1.Model;
 using System.Collections.ObjectModel;
-using static Java.Util.Jar.Attributes;
 
 namespace cerazoT1.Views;
 

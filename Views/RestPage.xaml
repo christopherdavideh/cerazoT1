@@ -69,7 +69,7 @@
                    HorizontalTextAlignment="Center"
                    FontAttributes="Bold"/>
             </Grid>
-            <ListView x:Name="listViewPerson">
+            <ListView x:Name="listViewPerson" ItemSelected="listViewPerson_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
