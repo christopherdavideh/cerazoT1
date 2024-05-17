@@ -1,4 +1,3 @@
-using AndroidX.Lifecycle;
 using cerazoT1.Model;
 using System.Collections.ObjectModel;
 

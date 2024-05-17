@@ -1,13 +1,16 @@
 using cerazoT1.Model;
+using Microsoft.Maui.ApplicationModel.Communication;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.Net;
+using System.Text;
+using System.Xml.Linq;
 
 namespace cerazoT1.Views;
 
 public partial class RestPage : ContentPage
 {
-    private const string URL = "http://192.168.100.158:8080/api/v1/users";
+    private const string URL = "http://10.2.7.96:8080/api/v1/users";
     private readonly HttpClient _httpClient = new HttpClient();
     public ObservableCollection<Person> persons { get; set; }
     public Person selectedPerson { get; set; }
@@ -32,19 +35,23 @@ public partial class RestPage : ContentPage
         txtLastname.Text = "";
     }
 
-    private void btnUpdate_Clicked(object sender, EventArgs e)
+    private async void btnUpdate_Clicked(object sender, EventArgs e)
     {
         try
         {
-            WebClient client = new WebClient();
-            var parameters = new System.Collections.Specialized.NameValueCollection
+            Person person = new()
             {
-                { "useId", selectedPerson.useId.ToString() },
-                { "useName", txtName.Text },
-                { "useLastname", txtLastname.Text },
-                { "useEmail", txtEmail.Text }
+                useId = selectedPerson.useId,
+                useName = txtName.Text,
+                useLastname = txtLastname.Text,
+                useEmail = txtEmail.Text,
             };
-            client.UploadValues(URL, "POST", parameters);
+            var json = JsonConvert.SerializeObject(person);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync(URL, content);
+            response.EnsureSuccessStatusCode();
+            getUsers();
             clearEntries();
             btnAdd.IsEnabled = true;
             btnUpdate.IsEnabled = false;
@@ -61,12 +68,18 @@ public partial class RestPage : ContentPage
         }
     }
 
-    private void btnDelete_Clicked(object sender, EventArgs e)
+    private async void btnDelete_Clicked(object sender, EventArgs e)
     {
         try
         {
-            WebClient client = new WebClient();
-            client.UploadValues(URL + "/" + selectedPerson.useId.ToString(), "DELETE", null);
+            var response = await _httpClient.DeleteAsync($"{URL}/{selectedPerson.useId}");
+            response.EnsureSuccessStatusCode();
+            DisplayAlert("Confirmacion", "Elemento eliminado exitosamente", "Cerrar");
+            getUsers();
+            clearEntries();
+            btnAdd.IsEnabled = true;
+            btnUpdate.IsEnabled = false;
+            btnDelete.IsEnabled = false;
         }
         catch (Exception ex)
         {
@@ -80,15 +93,21 @@ public partial class RestPage : ContentPage
 
     }
 
-    private void btnAdd_Clicked(object sender, EventArgs e)
+    private async void btnAdd_Clicked(object sender, EventArgs e)
     {
         try {
-            WebClient client = new WebClient();
-            var parameters = new System.Collections.Specialized.NameValueCollection();
-            parameters.Add("useName" , txtName.Text) ;
-            parameters.Add("useLastname", txtLastname.Text) ;
-            parameters.Add("useEmail" , txtEmail.Text) ;
-            client.UploadValues(URL, "POST", parameters);
+            Person person = new()
+            {
+                useName = txtName.Text,
+                useLastname = txtLastname.Text,
+                useEmail = txtEmail.Text,
+            };
+            var json = JsonConvert.SerializeObject(person);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync(URL, content);
+            response.EnsureSuccessStatusCode();
+            getUsers();
             clearEntries();
             btnAdd.IsEnabled = true;
             btnUpdate.IsEnabled = false;
